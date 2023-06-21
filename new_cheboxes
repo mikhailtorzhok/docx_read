@@ -1,0 +1,66 @@
+var checkboxes = document.getElementsByClassName('iceSelBoolChkbx');
+for (var i=0; i<checkboxes.length; i++) { //проходим по всем чекбоксам
+  checkboxes[i].checked = true; //включаем их
+}
+
+var uncheckboxes = document.getElementById('pgzform:userInfoTabs:0:etpEpTable:etpEpTableColumns:0:00:etpEpPrivilege');
+for (var i=0; i<uncheckboxes.length; i++) { //проходим по всем чекбоксам
+	alert(uncheckboxes[i]);
+	alert(i);
+}
+
+
+alert(document.getElementById('pgzform:userInfoTabs:0:etpEpTable:etpEpTableColumns:0:00:etpEpPrivilege'));
+
+var uncheckboxes = document.getElementById('pgzform:userInfoTabs:0:etpEpTable:etpEpTableColumns:0:00:etpEpPrivilege');
+alert(uncheckboxes.length);
+
+
+<div class="ui_gallery__inner_cont">
+    <div class="ui_gallery__inner "><div class="ui_gallery_item">
+  <a href="https://pos.gosuslugi.ru/og/org-activities?reg_code=28&amp;utm_source=vk1&amp;utm_medium=28&amp;utm_campaign=1056918000480" class="groups_menu_item groups_menu_item_other" title="Решаем вместе" data-type="14" data-pos="1" data-id="1289487" data-hash="980d093e3b2b8bb407" data-object-id="">
+  <div class="groups_menu_item_image" href="https://pos.gosuslugi.ru/og/org-activities?reg_code=28&amp;utm_source=vk1&amp;utm_medium=28&amp;utm_campaign=1056918000480">
+      <img class="groups_menu_item_image_content" src="https://sun1-94.userapi.com/impf/3e59m7kN1ZniWeRa0TtIUTbTQqEO0zL1Qx4pbg/d7sPXydUBIc.jpg?size=135x92&amp;quality=95&amp;crop=2,0,1562,1063&amp;sign=228a948e3452ea6b68d33eb1828197d5" alt="Решаем вместе">
+  </div>
+  <span class="groups_menu_item_title">Решаем вместе</span>
+</a>
+</div><div class="ui_gallery_item">
+  <a href="https://pos.gosuslugi.ru/form/?opaId=321456&amp;utm_source=vk&amp;utm_mediu m=28&amp;utm_campaign=1056918000480" class="groups_menu_item groups_menu_item_other" title="Решаем вместе" data-type="14" data-pos="0" data-id="1289486" data-hash="980d093e3b2b8bb407" data-object-id="">
+  <div class="groups_menu_item_image" href="https://pos.gosuslugi.ru/form/?opaId=321456&amp;utm_source=vk&amp;utm_mediu m=28&amp;utm_campaign=1056918000480">
+      <img class="groups_menu_item_image_content" src="https://sun1-85.userapi.com/impf/YJKrFWh4alKMEnYVBLVxSAAROXC9CFZ-CP7z6Q/aLs0dqw-aAs.jpg?size=135x92&amp;quality=95&amp;crop=2,0,1562,1063&amp;sign=e6a22dc903a029f89b5dd2cf9c2b95e0" alt="Решаем вместе">
+  </div>
+  <span class="groups_menu_item_title">Решаем вместе</span>
+</a>
+</div></div>
+  </div>
+  
+  
+  
+  var checkboxes = document.getElementsByClassName('iceSelBoolChkbx');
+for (var i=0; i<checkboxes.length; ++i) { //проходим по всем чекбоксам
+  checkboxes[i].checked = true; //включаем их
+}
+var checkboxes = document.getElementsByClassName('iceSelBoolChkbx-dis');
+for (var i=0; i<checkboxes.length; ++i) { 
+  checkboxes[i].disabled = false; 
+  checkboxes[i].checked = true; 
+}
+var checkboxes = document.getElementsByClassName('iceInpTxtArea-dis');
+for (var i=0; i<checkboxes.length; ++i) { 
+  checkboxes[i].disabled = false; 
+  checkboxes[i].value = 'Должностные обязанности';
+}
+for (var i=0; i<8; ++i) {
+  for (var j=0; j<5; ++j) {
+    if (i == 3) continue;
+    var checkboxId = document.getElementById('pgzform:userInfoTabs:0:etpTable:0:etpTableColumns:'+i+':'+i+j+':etpPrivilege');
+    checkboxId.checked = false;
+  }
+}
+for (var i=0; i<9; ++i) {
+  for (var j=0; j<5; ++j) {
+    if (i == 3) continue;
+    var checkboxId = document.getElementById('pgzform:userInfoTabs:0:etpEpTable:0:etpEpTableColumns:'+i+':'+i+j+':etpEpPrivilege');
+    checkboxId.checked = false;
+  }
+}
