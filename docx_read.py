@@ -46,6 +46,13 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
     doc = docx.Document(filename)
     
     '''
+    #print all
+    #texts = []
+    #for paragraph in doc.paragraphs:
+    #    texts.append(paragraph.text)
+    #print('\n'.join(texts))
+    '''
+    #print headers text
     header_text = []
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
@@ -54,16 +61,45 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
                 header_text.append(run.text)
     
     
-    #for paragraph in doc.paragraphs:
-    #    header_text.append(paragraph.text)
-    print('\n'.join(header_text))
     
-    '''
     
+    
+    #print not empty tables text
+    table_text = []
     for table in doc.tables:
         for row in table.rows:
             for cell in row.cells:
-                print(cell.text)
+                if bool(cell.text):
+                    #print(cell.text)
+                    table_text.append(cell.text)
+                    
+    #print body text
+    body_text = []
+    i=0
+    previous_text_was_bold = True
+    for paragraph in doc.paragraphs:
+        for run in paragraph.runs:
+            if not run.bold:
+                print(i)
+                print(run.text)
+                body_text.insert(i,run.text)
+                previous_text_was_bold = False
+            else:
+                if not previous_text_was_bold:
+                    i+=1
+                previous_text_was_bold = True
+                
+    #example to output
+    print("----------------------###############----------------------------")
+    print(header_text[0])
+    print("----------------------###############----------------------------")
+    print(table_text[0])
+    print("----------------------###############----------------------------")
+    print(body_text[0])
+    print("----------------------###############----------------------------")
+    
+    #for text in table_text:
+        #print(text)
     
     '''
     paraGr = []             
