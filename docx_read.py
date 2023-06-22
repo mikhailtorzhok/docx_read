@@ -45,22 +45,6 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
     
     doc = docx.Document(filename)
     
-    '''
-    #print all
-    #texts = []
-    #for paragraph in doc.paragraphs:
-    #    texts.append(paragraph.text)
-    #print('\n'.join(texts))
-    
-    #print headers text
-    header_text = []
-    for paragraph in doc.paragraphs:
-        for run in paragraph.runs:
-            if run.bold:
-                #print(run.text)
-                header_text.append(run.text)
-    '''
-    
     
     
     
@@ -106,7 +90,8 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
                         #header_text.insert(i,header_text[i]+run.text)
                                   
                 previous_text_was_bold = True
-                
+    
+    '''
     #example to output
     print("----------------------###############----------------------------")
     print(header_text[6])
@@ -115,27 +100,30 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
     print("----------------------###############----------------------------")
     print(body_text[6])
     print("----------------------###############----------------------------")
-    
-    #for text in table_text:
-        #print(text)
-    
     '''
-    paraGr = []             
-    index = []
-
-    print("par = doc.paragraphs")  
-    par = doc.paragraphs
-    for i in range(len(par)):
-        print(par[i]._p.xml) 
-        print(par[i].text)  
-        paraGr.append(par[i].text)
-        if 'graphicData' in par[i]._p.xml:
-            index.append(i)
     
+    result_text = []
     
-    for item in index:
-        print(par[item].text)
-    '''  
+    for j in range(i+1):
+        if "\r\n" not in header_text[j]:
+            continue
+        else:
+            print("WARNING carriage return was detected in text")
+            #print(header_text[j])
+            header_text[j] = ' '.join(header_text[j].splitlines())
+            #print(header_text[j])
+           
+    '''
+    for j in range(i+1):
+        print("----------------------###############----------------------------")
+        print(header_text[j])
+        print("----------------------###############----------------------------")
+        print(table_text[j])
+        print("----------------------###############----------------------------")
+        print(body_text[j])
+        print("----------------------###############----------------------------")
+    '''
+  
          
     return
 
