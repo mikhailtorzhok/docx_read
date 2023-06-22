@@ -51,7 +51,7 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
     #for paragraph in doc.paragraphs:
     #    texts.append(paragraph.text)
     #print('\n'.join(texts))
-    '''
+    
     #print headers text
     header_text = []
     for paragraph in doc.paragraphs:
@@ -59,7 +59,7 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
             if run.bold:
                 #print(run.text)
                 header_text.append(run.text)
-    
+    '''
     
     
     
@@ -74,31 +74,46 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
                     table_text.append(cell.text)
                     
     #print body text
+    header_text = []
     body_text = []
     i=0
     previous_text_was_bold = True
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if not run.bold:
-                print(i)
-                print(run.text)
+                #print(i)
+                #print(run.text)
                 if previous_text_was_bold:
                     body_text.insert(i,run.text)
                 else:
                     body_text[i] = body_text[i] + os.linesep + run.text
                 previous_text_was_bold = False
             else:
+                #print(i)
+                # print(run.text)
                 if not previous_text_was_bold:
+                    #print('i=' + str(i))
+                    #rint(header_text)
                     i+=1
+                    header_text.insert(i,run.text)              
+                    
+                else:
+                    if i==0:
+                        header_text.insert(i,run.text)
+                        #header_text.insert(i,header_text[i]+run.text)
+                    else:
+                        header_text[i] = header_text[i] + os.linesep + run.text
+                        #header_text.insert(i,header_text[i]+run.text)
+                                  
                 previous_text_was_bold = True
                 
     #example to output
     print("----------------------###############----------------------------")
-    print(header_text[0])
+    print(header_text[6])
     print("----------------------###############----------------------------")
-    print(table_text[0])
+    print(table_text[6])
     print("----------------------###############----------------------------")
-    print(body_text[0])
+    print(body_text[6])
     print("----------------------###############----------------------------")
     
     #for text in table_text:
