@@ -82,7 +82,10 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
             if not run.bold:
                 print(i)
                 print(run.text)
-                body_text.insert(i,run.text)
+                if previous_text_was_bold:
+                    body_text.insert(i,run.text)
+                else:
+                    body_text[i] = body_text[i] + os.linesep + run.text
                 previous_text_was_bold = False
             else:
                 if not previous_text_was_bold:
