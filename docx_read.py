@@ -45,18 +45,43 @@ def  read_from_word_and_write_to_site(driver, delay, filename='Doc1.docx'):
     
     doc = docx.Document(filename)
     
-    text = []
+    '''
+    header_text = []
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if run.bold:
                 #print(run.text)
-                text.append(run.text)
+                header_text.append(run.text)
     
     
     #for paragraph in doc.paragraphs:
-    #    text.append(paragraph.text)
-    print('\n'.join(text))
-      
+    #    header_text.append(paragraph.text)
+    print('\n'.join(header_text))
+    
+    '''
+    
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                print(cell.text)
+    
+    '''
+    paraGr = []             
+    index = []
+
+    print("par = doc.paragraphs")  
+    par = doc.paragraphs
+    for i in range(len(par)):
+        print(par[i]._p.xml) 
+        print(par[i].text)  
+        paraGr.append(par[i].text)
+        if 'graphicData' in par[i]._p.xml:
+            index.append(i)
+    
+    
+    for item in index:
+        print(par[item].text)
+    '''  
          
     return
 
